@@ -15,16 +15,40 @@ export class ComandaComponent implements OnInit {
   ngOnInit() {
     this.formComanda = this.formBuilder.group({
       chopp : this.formBuilder.control(''),
-      pizzas : this.formBuilder.control(''),
-      recheios : this.formBuilder.control(''),
-      pessoas : this.formBuilder.control(''),
-      pagaServico : this.formBuilder.control(true)
-
+      pizza : this.formBuilder.control(''),
+      recheio : this.formBuilder.control(''),
+      pessoa : this.formBuilder.control(''),
+      taxaservico : this.formBuilder.control(true)
   })
   }
 
   onProcessar(){
-    
+    let totalChopp:number =   this.formComanda.value.chopp * 7.30;
+    let totalPizza:number =   this.formComanda.value.pizza * 31.50;
+    let totalRecheio:number =   this.formComanda.value.recheio * 5.90;
+    let totalPessoa:number =   this.formComanda.value.pessoa;
+    let valorTaxa: number = 0;   
+
+    let totalTotal: number = totalChopp + totalPizza + totalRecheio;
+
+    let resulTaxa: boolean = this.formComanda.value.taxaservico;
+
+    if(resulTaxa == true)
+    {
+        valorTaxa = totalTotal * 0.1;        
+        
+    }
+    else
+    {
+      valorTaxa = 0;
+      
+    }
+
+
+    let totalAPagar: number = totalTotal + valorTaxa;
+    let porPessoa: number = totalAPagar / totalPessoa;
+
+    alert(`Total: ${totalTotal} \n Valor Taxa: ${valorTaxa} \nTotal com Taxa: ${totalAPagar} \nTotal Por pessoa: ${porPessoa}`);
   }
 
 }

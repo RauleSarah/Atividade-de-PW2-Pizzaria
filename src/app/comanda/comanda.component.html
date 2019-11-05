@@ -4,54 +4,35 @@
     <div id="wrapper">
       <div id="comanda">
         <h1>Comanda</h1>
-        <form>
-          <p>
-            <label>Chopp</label>
-            <input type="text"
-              id="inChopp"
-              class="form-control"
-              placeholder="Chopp"
-              formControlName="chopp"/>
-          
-          <p>
-              <label>Pizzas</label>
-              <input type="text"
-              id="inPizzas"
-              class="form-control"
-              placeholder="Pizzas"
-              formControlName="pizzas"/>
-            </p>
-
+        <form [formGroup]="formComanda" (ngSubmit)="onProcessar()">
             <p>
-                <label>Recheios</label>
-                <input type="text"
-                id="inRecheios"
-                class="form-control"
-                placeholder="Recheios"
-                formControlName="recheios"/>
-              </p>
-
-              <p>
-                  <label>Pessoas</label>
-                  <input type="text"
-                  id="inPessoas"
-                  class="form-control"
-                  placeholder="Pessoas"
-                  formControlName="pessoas"/>
-                </p>
-
-
-
-          <p class="keepcomanda">
-            <input type="checkbox" name="inServico" formControlName="pagaServico"/>
-            <label>Taxa de serviço</label>
-          </p>
-
-          <p class="comanda button">
-            <input type="submit" value="Registrar" />
-          </p>
-
-        </form>
+              <label for="">Chopp</label>           
+              <input type="text" name="inChopp" formControlName="chopp">           
+            </p>
+  
+            <p>
+              <label for="">Pizzas</label>         
+              <input type="text" name="inPizza" formControlName="pizza">           
+            </p>
+  
+            <p>
+              <label for="">Recheio</label>          
+              <input type="text" name="inRecheio" formControlName="recheio">           
+            </p>
+  
+            <p>
+              <label for="">Pessoas</label>          
+              <input type="text" name="inPessoa" formControlName="pessoa">           
+            </p>
+  
+            <p class="keepcomanda">    
+              <input type="checkbox" name="inServico" formControlName="taxaservico">     
+              <label for="">Taxa serviço</label>                  
+            </p>
+           <p class="comanda button">
+             <input type="submit" value="registrar">
+        </form> 
+        
         <p class="about">Raul de Paiva Campos</p>
       </div>
     </div>
